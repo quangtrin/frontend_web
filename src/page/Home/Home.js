@@ -30,11 +30,6 @@ const Home = ({ user, setIsSignUp }) => {
   const getDataFilms = async () => {
     setIsHasData(false);
     const res = await axios({
-      headers: {
-        'Access-Control-Allow-Origin': 'https://main--chic-mochi-879a35.netlify.app',
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
       url: "https://backend-test-production-51c0.up.railway.app/api/user/getFilm",
       method: "GET"
     });
@@ -184,11 +179,11 @@ const Home = ({ user, setIsSignUp }) => {
           <Container fluid="md">
             <Row>
               {
-                isHasData ? console.log(films)
-                  // films.map((film, index) => {
-                  //   if (index >= (page * 30 - 30) && index <= (30 * page - 1))
-                  //     return <Col><CardFilm href={"/ListEpisode/" + film.filmName} imgUrl={film.url} name={film.filmName} episode={1} duration={film.duration}></CardFilm></Col>
-                  // })
+                isHasData ?
+                  films.map((film, index) => {
+                    if (index >= (page * 30 - 30) && index <= (30 * page - 1))
+                      return <Col><CardFilm href={"/ListEpisode/" + film.filmName} imgUrl={film.url} name={film.filmName} episode={1} duration={film.duration}></CardFilm></Col>
+                  })
                   : <></>
               }
             </Row>
