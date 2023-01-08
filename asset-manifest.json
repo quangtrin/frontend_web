@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "./static/css/main.c8858f33.css",
+    "main.js": "./static/js/main.b19c7387.js",
+    "static/js/787.c4e7f8f9.chunk.js": "./static/js/787.c4e7f8f9.chunk.js",
+    "static/media/background_login.jpg": "./static/media/background_login.678ab0a2b43eda1227eb.jpg",
+    "static/media/down.png": "./static/media/down.99b1e5546467124ea5d0.png",
+    "static/media/conan.jpg": "./static/media/conan.272021d1b271c1852273.jpg",
+    "static/media/adds.jpg": "./static/media/adds.e9fbff7351b048cc6088.jpg",
+    "static/media/logo-pops.png": "./static/media/logo-pops.a02446998b68ce2e0cad.png",
+    "static/media/search.png": "./static/media/search.59cf6e7fef0120a7493e.png",
+    "static/media/doraemonbanner.jpg": "./static/media/doraemonbanner.452dfd91f1ea71034adc.jpg",
+    "index.html": "./index.html",
+    "main.c8858f33.css.map": "./static/css/main.c8858f33.css.map",
+    "main.b19c7387.js.map": "./static/js/main.b19c7387.js.map",
+    "787.c4e7f8f9.chunk.js.map": "./static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c8858f33.css",
+    "static/js/main.b19c7387.js"
+  ]
+}
