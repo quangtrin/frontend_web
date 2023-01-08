@@ -1,7 +1,6 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://quangtrin.github.io/frontend_web",
   "proxy": "https://backend-test-production-51c0.up.railway.app",
   "private": true,
   "dependencies": {

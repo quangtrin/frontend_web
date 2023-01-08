@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <GlobalStyles>
-      <BrowserRouter basename="/frontend_web">
+      <BrowserRouter>
         <App />
       </BrowserRouter>
     </GlobalStyles>
