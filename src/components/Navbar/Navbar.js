@@ -63,7 +63,7 @@ function Navbar({ user, episodeFilm, film }) {
     setIsLoading(false);
 
     try {
-      const res = await (await axios.get("/api/user/comment")).data;
+      const res = await (await axios.get("https://backend-test-production-51c0.up.railway.app/api/user/comment")).data;
       setComments(res);
       setIsLoading(true);
     } catch (error) {
@@ -73,7 +73,7 @@ function Navbar({ user, episodeFilm, film }) {
 
   const handleSendComment = async (comment) => {
     if (user) {
-      const req = await axios.post("/api/user/comment", {
+      const req = await axios.post("https://backend-test-production-51c0.up.railway.app/api/user/comment", {
         userID: user.userId,
         commentParentID: commentParentID,
         comment: comment,

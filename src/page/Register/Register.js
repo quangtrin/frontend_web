@@ -37,7 +37,7 @@ const Register = () => {
     e.preventDefault();
     if (account && userName && password) {
       setIsRegistering(true);
-      const res = await axios.post("/api/user/register", {
+      const res = await axios.post("https://backend-test-production-51c0.up.railway.app/api/user/register", {
         account: account,
         password: password,
         userName: userName,

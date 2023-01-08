@@ -29,7 +29,7 @@ const Home = ({ user, setIsSignUp }) => {
   const [films, setFilms] = useState();
   const getDataFilms = async () => {
     setIsHasData(false);
-    const res = await axios.get("/api/user/getFilm");
+    const res = await axios.get("https://backend-test-production-51c0.up.railway.app/api/user/getFilm");
     setFilms(res.data);
     setIsHasData(true);
   }
