@@ -1,0 +1,62 @@
+/*---- Common Factor CSS ----*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import "normalize.css";
+
+:root {
+  --primary: #ea6016;
+  --black: #000;
+  --white: #fff;
+  --text-color: #373941;
+  --main-background-color: #242424;
+  --gradient-to-bottom-black: linear-gradient(
+    to bottom,
+    rgba(20, 20, 20, 0.3),
+    rgba(20, 20, 20, 0.8)
+  );
+  --red: red;
+  --header-box-shadow-button-hover: rgba(234, 96, 22, 0.5);
+  --footer-background-color: #111111;
+  --text-title-describe: #bcbcbc;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  font-style: 1.6rem;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  color: var(--text-color);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #1d1d1d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--room_scroll_background_color, #353434);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px transparent;
+  background: #1d1d1d;
+  border-radius: 4px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}

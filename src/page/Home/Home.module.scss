@@ -1,0 +1,273 @@
+.container {
+  padding: 16px 5%;
+  margin: 0px auto;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home {
+  width: 100%;
+  background-color: #151515;
+}
+
+.slider {
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+}
+
+.slides-drop {
+  width: 500%;
+  height: 500px;
+  display: flex;
+}
+
+.slides-drop input {
+  display: none;
+}
+
+.slide {
+  width: 20%;
+  transition: 2s;
+}
+
+.slide img {
+  width: 100%;
+  height: 800px;
+  object-fit: cover;
+}
+
+.navigation-manual {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  margin-top: 185px;
+  justify-content: right;
+}
+
+.navigation-manual ul li {
+  display: block;
+  list-style: none;
+  padding: 0px;
+  margin-bottom: 2px;
+}
+
+.navigation-manual label {
+  border: 2px solid #ea6016;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+  margin-right: 20%;
+  opacity: 0;
+}
+
+.manual-btn {
+  width: 10px;
+  height: 10px;
+  font-size: 1px;
+  padding: 5px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.manual-btn:not(:last-child) {
+  margin-right: 40px;
+}
+
+.manual-btn:hover {
+  background: #ea6016;
+}
+
+#radio1:checked~.first {
+  margin-left: 0;
+}
+
+#radio2:checked~.first {
+  margin-left: -20%;
+}
+
+#radio3:checked~.first {
+  margin-left: -40%;
+}
+
+#radio4:checked~.first {
+  margin-left: -60%;
+}
+
+.navigation-auto {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  margin-top: 10%;
+  justify-content: right;
+}
+
+.navigation-auto ul li {
+  list-style: none;
+}
+
+.navigation-auto div {
+  border: 2px solid #ea6016;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+  margin-bottom: 5px;
+}
+
+.navigation-auto div:not(:last-child) {
+  margin-right: 40px;
+}
+
+#radio1:checked~.navigation-auto .auto-btn1 {
+  background: #ea6016;
+}
+
+#radio2:checked~.navigation-auto .auto-btn2 {
+  background: #ea6016;
+}
+
+#radio3:checked~.navigation-auto .auto-btn3 {
+  background: #ea6016;
+}
+
+#radio4:checked~.navigation-auto .auto-btn4 {
+  background: #ea6016;
+}
+
+.slider-text {
+  text-align: left;
+  margin-top: -35%;
+}
+
+.text-heading h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 30px;
+  display: block;
+}
+
+.text-description p {
+  font-family: "Roboto", sans-serif;
+  color: #bcbcbc;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.text-description p span {
+  color: #fff;
+}
+
+.button-slider {
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  font-size: 20px;
+  background-image: linear-gradient(90deg, #f80, #ea3c2a 50%, #f80);
+  padding: 15px 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button-slider:hover {
+  background-image: linear-gradient(90deg, #ea3c2a, #f80 50%, #ea3c2a);
+}
+
+.slider-up {
+  position: absolute;
+  margin-top: 5%;
+  width: 100%;
+}
+
+.text-hot-series h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 36px;
+  color: #fff;
+}
+
+.text-hot-series h3 button {
+  width: 8px;
+  height: 40px;
+  background-image: linear-gradient(90deg, #ea3c2a, #f80 50%, #ea3c2a);
+  border-radius: 5px;
+  margin-right: 20px;
+  transform: translateY(20%);
+}
+
+.mySlides {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+.adds {
+  background-color: #151515;
+}
+
+.adds img {
+  width: 100%;
+  padding: 70px 0 20px;
+  cursor: pointer;
+}
+
+.content {
+  background-color: #151515;
+}
+
+.text-content h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 36px;
+  color: #fff;
+  padding-bottom: 30px;
+}
+
+.text-content h3 button {
+  width: 8px;
+  height: 40px;
+  background-image: linear-gradient(90deg, #ea3c2a, #f80 50%, #ea3c2a);
+  border-radius: 5px;
+  margin-right: 20px;
+  transform: translateY(20%);
+}
+
+.pagination {
+  padding: 25px 0;
+  text-align: center;
+  background-color: #151515;
+}
+
+.pagination a {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  line-height: 30px;
+  text-align: center;
+}
+
+.pagination a.active {
+  color: rgb(234 96 22);
+  border-color: rgb(234 96 22);
+}
+
+.pagination a:hover {
+  border-color: #fff;
+}
+
+.pagination span {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  padding-left: 10px;
+  padding-right: 15px;
+}

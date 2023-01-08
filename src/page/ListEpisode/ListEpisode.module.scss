@@ -1,0 +1,80 @@
+.layout {
+  box-sizing: border-box;
+  position: "relative";
+}
+
+.layout_up {
+  z-index: 0;
+  width: 100%;
+  padding-top: 25%;
+  padding-right: 10%;
+  padding-left: 10%;
+  background-image: linear-gradient(
+      to top,
+      rgb(20, 20, 20, 1) 42.8%,
+      rgb(20, 20, 20, 0.9) 50%,
+      rgba(20, 20, 20, 0) 60%
+    ),
+    url("https://cdn.popsww.com/popsapp/assets/images/series/bg-series-new.png");
+  // background-repeat: no-repeat;
+  padding-bottom: 100px;
+}
+
+.title_films {
+  font-weight: 700;
+  color: white;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+.describe {
+  font-size: 20px;
+}
+
+.layout_back {
+  background-color: rgb(20, 20, 20);
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+}
+
+.img_film_layout {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: rgb(75, 198, 254);
+  width: 75%;
+  height: 600px;
+}
+
+.img_film {
+  position: absolute;
+  right: 150px;
+  top: 0px;
+  height: 516px;
+  width: 364px;
+}
+
+.primary {
+  color: var(--primary);
+}
+
+.display-background-container {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.text-title-describe {
+  color: var(--text-title-describe);
+}
+
+.dot {
+  font-weight: 800;
+  color: white;
+  margin: 5px;
+}
+
+// Navbar
+.navbar {
+}
