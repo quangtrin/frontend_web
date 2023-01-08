@@ -63,7 +63,17 @@ function Navbar({ user, episodeFilm, film }) {
     setIsLoading(false);
 
     try {
-      const res = await (await axios.get("https://backend-test-production-51c0.up.railway.app/api/user/comment")).data;
+      const res = await (
+        await axios({
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          url: "https://backend-test-production-51c0.up.railway.app/api/user/comment",
+          method: "GET"
+        }
+        )).data;
       setComments(res);
       setIsLoading(true);
     } catch (error) {
@@ -199,7 +209,7 @@ function Navbar({ user, episodeFilm, film }) {
             {episodeFilm.map((episode) => {
               return (
                 <Col span={4}>
-                  <Episode href={"/WatchFilm/"+film.filmName+"?episode="+episode.episodeID} episode={episode?.episodeID}></Episode>
+                  <Episode href={"/WatchFilm/" + film.filmName + "?episode=" + episode.episodeID} episode={episode?.episodeID}></Episode>
                 </Col>
               );
             })}
