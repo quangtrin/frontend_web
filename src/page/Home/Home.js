@@ -31,7 +31,7 @@ const Home = ({ user, setIsSignUp }) => {
     setIsHasData(false);
     const res = await axios({
       headers: {
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': 'https://main--chic-mochi-879a35.netlify.app',
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
