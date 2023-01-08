@@ -63,17 +63,7 @@ function Navbar({ user, episodeFilm, film }) {
     setIsLoading(false);
 
     try {
-      const res = await (
-        await axios({
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          url: "https://backend-test-production-51c0.up.railway.app/api/user/comment",
-          method: "GET"
-        }
-        )).data;
+      const res = await (await axios.get("https://backend-test-production-51c0.up.railway.app/api/user/comment")).data;
       setComments(res);
       setIsLoading(true);
     } catch (error) {
