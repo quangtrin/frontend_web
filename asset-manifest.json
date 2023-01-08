@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/frontend_web/static/css/main.dba32a28.css",
-    "main.js": "/frontend_web/static/js/main.796e8504.js",
+    "main.js": "/frontend_web/static/js/main.f8102fbd.js",
     "static/js/787.c4e7f8f9.chunk.js": "/frontend_web/static/js/787.c4e7f8f9.chunk.js",
     "static/media/background_login.jpg": "/frontend_web/static/media/background_login.678ab0a2b43eda1227eb.jpg",
     "static/media/down.png": "/frontend_web/static/media/down.99b1e5546467124ea5d0.png",
@@ -12,11 +12,11 @@
     "static/media/doraemonbanner.jpg": "/frontend_web/static/media/doraemonbanner.452dfd91f1ea71034adc.jpg",
     "index.html": "/frontend_web/index.html",
     "main.dba32a28.css.map": "/frontend_web/static/css/main.dba32a28.css.map",
-    "main.796e8504.js.map": "/frontend_web/static/js/main.796e8504.js.map",
+    "main.f8102fbd.js.map": "/frontend_web/static/js/main.f8102fbd.js.map",
     "787.c4e7f8f9.chunk.js.map": "/frontend_web/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dba32a28.css",
-    "static/js/main.796e8504.js"
+    "static/js/main.f8102fbd.js"
   ]
 }
