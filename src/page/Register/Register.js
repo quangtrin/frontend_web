@@ -7,7 +7,7 @@ import { Button } from "antd";
 import styles from "./Register.module.scss";
 import classNames from "classnames/bind";
 import { useNavigate } from "react-router-dom";
-import imgLogo from "../../imgs/logo-pops.png";
+import imgLogo from "../../imgs/logo_hqbh.png";
 
 const cx = classNames.bind(styles);
 

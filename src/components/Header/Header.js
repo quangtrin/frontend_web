@@ -1,4 +1,4 @@
-import imgLogo from "../../imgs/logo-pops.png";
+import imgLogo from "../../imgs/logo_hqbh.png";
 import imgIconSearch from "../../imgs/search.png";
 import User from "./User/User";
 import classNames from "classnames/bind";

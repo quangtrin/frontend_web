@@ -1,4 +1,4 @@
-import imgLogo from "../../imgs/logo-pops.png";
+import imgLogo from "../../imgs/logo_hqbh.png";
 import imgIconGooglePlay from "../../imgs/googleplay.png";
 import imgIconSmartTV from "../../imgs/smartTV.png";
 import imgIconAppStore from "../../imgs/appstore.png";

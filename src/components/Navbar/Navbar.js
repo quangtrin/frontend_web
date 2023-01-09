@@ -199,7 +199,7 @@ function Navbar({ user, episodeFilm, film }) {
             {episodeFilm.map((episode) => {
               return (
                 <Col span={4}>
-                  <Episode href={"/WatchFilm/" + film.filmName + "?episode=" + episode.episodeID} episode={episode?.episodeID}></Episode>
+                  <Episode href={"/WatchFilm/"+film.filmName+"?episode="+episode.episodeID} episode={episode?.episodeID}></Episode>
                 </Col>
               );
             })}
