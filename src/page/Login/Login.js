@@ -40,7 +40,7 @@ const Login = ({ setIsSignUp }) => {
         localStorage.setItem("avatar", res.data.avatar);
         setIsSignUp(true);
         const text = "Welcome " + res.data.userName;
-        navigate("/");
+        navigate(-1);
         setIsLoginSucces(true);
       } else setIsLoginSucces(false);
     }

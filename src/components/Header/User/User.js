@@ -8,7 +8,7 @@ const User = ({ user, setIsSignUp }) => {
     const handleClickLogout = () => {
         localStorage.clear();
         setIsSignUp(false);
-        navigate("/login");
+        navigate(0);
     }
     return (
         <a className={cx("comment-avatar")} onClick={handleClickLogout}>
