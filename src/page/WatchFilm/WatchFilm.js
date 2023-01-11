@@ -7,6 +7,7 @@ import styles from "./WatchFilm.module.scss";
 import Footer from "../../components/Footer/Footer";
 import { useParams, useSearchParams } from "react-router-dom";
 import axios from "axios";
+import { LoadingOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 
 const cx = classNames.bind(styles);
@@ -22,14 +23,14 @@ const WatchFilm = ({ user, setIsSignUp }) => {
     setIsHasData(false);
     const res = await axios.get("https://backend-test-production-51c0.up.railway.app/api/user/getFilm/" + filmName);
     setFilm(res.data);
-  }
+  };
 
   const getDataEpisodeFilm = async () => {
     if (film) {
       const res2 = await axios.get("https://backend-test-production-51c0.up.railway.app/api/user/getEpisodeFilm/" + film?.filmID);
       setEpisodeFilm(res2.data);
     }
-  }
+  };
 
   const getUrlEpisodeFilm = async () => {
     if (episodeFilm) {
@@ -37,11 +38,10 @@ const WatchFilm = ({ user, setIsSignUp }) => {
       setUrlEpisodeFilm(res.data[0].url);
       setIsHasData(true);
     }
-  }
-  useEffect(
-    () => {
-      getDataFilm();
-    }, [])
+  };
+  useEffect(() => {
+    getDataFilm();
+  }, []);
 
   useEffect(() => {
     getDataEpisodeFilm();
@@ -52,8 +52,8 @@ const WatchFilm = ({ user, setIsSignUp }) => {
   }, [episodeFilm]);
   return (
     <div>
-      <Header user={user} setIsSignUp={setIsSignUp} ></Header>
-      {isHasData ? <>
+      <Header user={user} setIsSignUp={setIsSignUp}></Header>
+      {isHasData ? (
         <div className={cx("layout")}>
           <div className={cx("layout_video", "container")}>
             <iframe className={cx("video")} src={urlEpisodeFilm}></iframe>
@@ -66,10 +66,7 @@ const WatchFilm = ({ user, setIsSignUp }) => {
               <div className={cx("under_line")}></div>
               <div className={cx("describe")}>
                 <Row>
-                  <Col
-                    xs={9}
-                    style={{ paddingRight: "100px" }}
-                  >
+                  <Col xs={9} style={{ paddingRight: "100px" }}>
                     <TextInformation
                       title="Mô tả: "
                       text={film.description}
@@ -125,9 +122,18 @@ const WatchFilm = ({ user, setIsSignUp }) => {
               </div>
             </Container>
           </div>
-          <Navbar className={cx("navbar")} user={user} episodeFilm={episodeFilm} film={film}></Navbar>
+          <Navbar
+            className={cx("navbar")}
+            user={user}
+            episodeFilm={episodeFilm}
+            film={film}
+          ></Navbar>
         </div>
-      </> : <></>}
+      ) : (
+        <div className={cx("loading-wrapper")}>
+          <LoadingOutlined className={cx("loading-icon")} />
+        </div>
+      )}
       <Footer></Footer>
     </div>
   );

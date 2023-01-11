@@ -65,11 +65,11 @@ function Comment({ data, commentChilds, callBack, inputElement }) {
             <></>
           )}
 
-          {data.commentChildren ? (
+          {commentChilds ? (
             <span className={cx("show-option")}>
               Ẩn câu trả lời
               {/* Xem câu trả lời */}
-              {data.commentChildren ? (
+              {commentChilds ? (
                 <UpOutlined className={cx("show-icon")} />
               ) : (
                 <></>

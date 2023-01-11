@@ -82,19 +82,19 @@
   background: #ea6016;
 }
 
-#radio1:checked~.first {
+#radio1:checked ~ .first {
   margin-left: 0;
 }
 
-#radio2:checked~.first {
+#radio2:checked ~ .first {
   margin-left: -20%;
 }
 
-#radio3:checked~.first {
+#radio3:checked ~ .first {
   margin-left: -40%;
 }
 
-#radio4:checked~.first {
+#radio4:checked ~ .first {
   margin-left: -60%;
 }
 
@@ -122,19 +122,19 @@
   margin-right: 40px;
 }
 
-#radio1:checked~.navigation-auto .auto-btn1 {
+#radio1:checked ~ .navigation-auto .auto-btn1 {
   background: #ea6016;
 }
 
-#radio2:checked~.navigation-auto .auto-btn2 {
+#radio2:checked ~ .navigation-auto .auto-btn2 {
   background: #ea6016;
 }
 
-#radio3:checked~.navigation-auto .auto-btn3 {
+#radio3:checked ~ .navigation-auto .auto-btn3 {
   background: #ea6016;
 }
 
-#radio4:checked~.navigation-auto .auto-btn4 {
+#radio4:checked ~ .navigation-auto .auto-btn4 {
   background: #ea6016;
 }
 
@@ -202,9 +202,6 @@
   justify-content: space-between;
 }
 
-
-
-
 .adds {
   background-color: #151515;
 }
@@ -270,4 +267,16 @@
   color: #fff;
   padding-left: 10px;
   padding-right: 15px;
+}
+
+// Loanding Icon
+
+.loading-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  .loading-icon {
+    font-size: 120px;
+    color: var(--white);
+  }
 }

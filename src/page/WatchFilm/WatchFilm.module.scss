@@ -24,7 +24,7 @@
 .time_video {
   width: 98%;
   height: 3px;
-  background-color: rgb(115,133,159);
+  background-color: rgb(115, 133, 159);
 }
 
 .icon_video {
@@ -66,3 +66,16 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
+// Loanding Icon
+
+.loading-wrapper {
+  padding: 150px 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: rgb(20, 20, 20);
+  .loading-icon {
+    font-size: 120px;
+    color: var(--white);
+  }
+}

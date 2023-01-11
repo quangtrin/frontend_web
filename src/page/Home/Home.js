@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import CardFilm from "../Home/CardFilm/CardFilm";
 import SlideHome from "../Home/SlideHome/SlideHome";
 import HotSlide from "./HotSlide/HotSlide";
+import { LoadingOutlined } from "@ant-design/icons";
 
 import imgBanner1 from "../../imgs/conan.jpg";
 import imgBanner2 from "../../imgs/doraemonbanner.jpg";
@@ -20,6 +21,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const cx = classNames.bind(styles);
+
 const Home = ({ user, setIsSignUp }) => {
   let { page } = useParams();
   if (page === undefined) page = "1";
@@ -209,32 +211,38 @@ const Home = ({ user, setIsSignUp }) => {
                     );
                 })
               ) : (
-                <></>
+                <div className={cx("loading-wrapper")}>
+                  <LoadingOutlined className={cx("loading-icon")} />
+                </div>
               )}
             </Row>
           </Container>
-          <div className={cx("pagination")}>
-            <a href={"/" + (Number(page) - 1)}>&lt;&lt;</a>
-            <a className={page === "1" ? cx("active") : <></>} href="/1">
-              1
-            </a>
-            <a href="/2" className={page === "2" ? cx("active") : <></>}>
-              2
-            </a>
-            <a href="/3" className={page === "3" ? cx("active") : <></>}>
-              3
-            </a>
-            <span>...</span>
-            {page !== "1" && page !== "2" && page !== "3" ? (
-              <>
-                <a href={"/" + page}>{page}</a>
-                <span>...</span>
-              </>
-            ) : (
-              <></>
-            )}
-            <a href={"/" + (Number(page) + 1)}>&gt;&gt;</a>
-          </div>
+          {isHasData ? (
+            <div className={cx("pagination")}>
+              <a href={"/" + (Number(page) - 1)}>&lt;&lt;</a>
+              <a className={page === "1" ? cx("active") : <></>} href="/1">
+                1
+              </a>
+              <a href="/2" className={page === "2" ? cx("active") : <></>}>
+                2
+              </a>
+              <a href="/3" className={page === "3" ? cx("active") : <></>}>
+                3
+              </a>
+              <span>...</span>
+              {page !== "1" && page !== "2" && page !== "3" ? (
+                <>
+                  <a href={"/" + page}>{page}</a>
+                  <span>...</span>
+                </>
+              ) : (
+                <></>
+              )}
+              <a href={"/" + (Number(page) + 1)}>&gt;&gt;</a>
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
       <Footer></Footer>
