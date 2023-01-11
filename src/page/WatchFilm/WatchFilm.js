@@ -56,7 +56,7 @@ const WatchFilm = ({ user, setIsSignUp }) => {
       {isHasData ? (
         <div className={cx("layout")}>
           <div className={cx("layout_video", "container")}>
-            <iframe className={cx("video")} src={urlEpisodeFilm}></iframe>
+            <iframe className={cx("video")} src={urlEpisodeFilm} allowFullScreen></iframe>
           </div>
           <div className={cx("layout_up")}>
             <Container style={{ paddingLeft: "10%" }}>
