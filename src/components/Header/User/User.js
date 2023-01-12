@@ -1,19 +1,95 @@
 import classNames from "classnames/bind";
-import styles from "./User.module.scss"
-import img from "../../../imgs/user_default.png"
 import { useNavigate } from "react-router-dom";
+import {
+  GlobalOutlined,
+  QuestionCircleOutlined,
+  CodeOutlined,
+  UserOutlined,
+  SettingOutlined,
+  LogoutOutlined,
+} from "@ant-design/icons";
+
+import styles from "./User.module.scss";
+import Menu from "../../Propper/Menu";
+
 const cx = classNames.bind(styles);
+
+const MENU_ITEM = [
+  {
+    icon: <GlobalOutlined />,
+    title: "English",
+    children: {
+      title: "Language",
+      data: [
+        {
+          type: "language",
+          code: "en",
+          title: "English",
+        },
+        {
+          type: "language",
+          code: "vi",
+          title: "Tiếng Việt",
+        },
+      ],
+    },
+  },
+  {
+    icon: <QuestionCircleOutlined />,
+    title: "Feedback and Help",
+    to: "/feedback",
+  },
+  {
+    icon: <CodeOutlined />,
+    title: "Keyboard shortcuts",
+  },
+];
+
 const User = ({ user, setIsSignUp }) => {
-    const navigate = useNavigate();
-    const handleClickLogout = () => {
-        localStorage.clear();
-        setIsSignUp(false);
-        navigate(0);
+  const navigate = useNavigate();
+  const handleMenuChange = (menuItem) => {
+    switch (menuItem.type) {
+      case "language":
+        break;
+
+      default:
+        break;
     }
-    return (
-        <a className={cx("comment-avatar")} onClick={handleClickLogout}>
-            <img src={user.avatar} ></img><span>Thông tin</span>
-        </a>
-    )
-}
+  };
+
+  const userMenu = [
+    {
+      icon: <UserOutlined />,
+      title: "View profile",
+    },
+    {
+      icon: <SettingOutlined />,
+      title: "Settings",
+    },
+    ...MENU_ITEM,
+    {
+      icon: <LogoutOutlined />,
+      title: "Log out",
+      separate: true,
+    },
+  ];
+  const handleClickLogout = () => {
+    localStorage.clear();
+    setIsSignUp(false);
+    navigate(0);
+  }
+  return (
+    <Menu
+      items={userMenu}
+      onChange={handleMenuChange}
+      callBack={handleClickLogout}
+    >
+      {user ? (
+        <img className={cx("user-avatar")} src={user.avatar} alt="" />
+      ) : (
+        <></>
+      )}
+    </Menu>
+  );
+};
 export default User;

@@ -6,7 +6,7 @@ import React from "react";
 import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
 import styles from "./Login.module.scss";
 import classNames from "classnames/bind";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import imgLogo from "../../imgs/logo_hqbh.png";
 
 const cx = classNames.bind(styles);
