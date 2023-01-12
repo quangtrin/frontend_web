@@ -60,6 +60,9 @@ const Register = () => {
       }
     }
   };
+  const handleClickLogin = () => {
+    navigate("/login", { state: { isHistoryUrlRegister: true } });
+  }
   useEffect(() => {
     success ? navigate("/login") : <></>;
   }, [success]);
@@ -164,7 +167,7 @@ const Register = () => {
         </form>
         <p className={cx("register_already")}>
           <span>Bạn đã có tài khoản?</span>
-          <a href="/login" className={cx("login_link")}>
+          <a onClick={handleClickLogin} className={cx("login_link")}>
             Đăng nhập
           </a>
         </p>

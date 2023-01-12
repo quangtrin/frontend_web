@@ -6,13 +6,14 @@ import React from "react";
 import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
 import styles from "./Login.module.scss";
 import classNames from "classnames/bind";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import imgLogo from "../../imgs/logo_hqbh.png";
 
 const cx = classNames.bind(styles);
 
 const Login = ({ setIsSignUp }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [account, setAccount] = useState();
   const [password, setPassword] = useState();
   const [isLoginSucces, setIsLoginSucces] = useState(true);
@@ -40,7 +41,8 @@ const Login = ({ setIsSignUp }) => {
         localStorage.setItem("avatar", res.data.avatar);
         setIsSignUp(true);
         const text = "Welcome " + res.data.userName;
-        navigate(-1);
+        if(!location.state?.isHistoryUrlRegister) navigate(-1);
+        else navigate("/");
         setIsLoginSucces(true);
       } else setIsLoginSucces(false);
     }
