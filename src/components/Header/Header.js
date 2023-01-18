@@ -24,7 +24,6 @@ const Header = ({ user, setIsSignUp }) => {
   useEffect(() => {
     getDataFilms();
     window.addEventListener("scroll", (e) => {
-      console.log(e);
       if (window.pageYOffset  > 0) {
         setScroll(true);
       }
