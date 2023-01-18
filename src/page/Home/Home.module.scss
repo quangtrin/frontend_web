@@ -78,6 +78,7 @@
 .navigation-auto div:not(:last-child) {
   margin-right: 40px;
 }
+
 .img-hot-series {
   width: 100%;
   overflow: hidden;
@@ -87,10 +88,11 @@
     margin: 4rem 0px;
   }
 }
+
 .text-hot-series h3 {
   font-family: "Roboto", sans-serif;
   font-size: 36px;
-  color: #fff;
+  color: var(--white);
 }
 
 .text-hot-series h3 button {
@@ -124,7 +126,7 @@
 .text-content h3 {
   font-family: "Roboto", sans-serif;
   font-size: 36px;
-  color: #fff;
+  color: var(--white);
   padding-bottom: 30px;
 }
 
@@ -140,36 +142,34 @@
 .pagination {
   padding: 25px 0;
   text-align: center;
-  background-color: #151515;
 }
 
-.pagination a {
+.pagination .page {
   display: inline-block;
   font-size: 16px;
   font-weight: 700;
-  color: #fff;
-  height: 30px;
-  width: 30px;
-  border: 1px solid transparent;
-  border-radius: 50%;
-  line-height: 30px;
+  color: var(--white);
   text-align: center;
+  margin: 2px;
+  padding: 5px 1rem;
+  &:hover{
+    opacity: 0.7;
+  }
 }
 
 .pagination a.active {
-  color: rgb(234 96 22);
-  border-color: rgb(234 96 22);
+  color: var(--primary);
 }
 
 .pagination a:hover {
-  border-color: #fff;
+  border-color: var(--white);
 }
 
 .pagination span {
   display: inline-block;
   font-size: 16px;
   font-weight: 700;
-  color: #fff;
+  color: var(--white);
   padding-left: 10px;
   padding-right: 15px;
 }
@@ -180,6 +180,7 @@
   display: flex;
   width: 100%;
   justify-content: center;
+
   .loading-icon {
     font-size: 120px;
     color: var(--white);

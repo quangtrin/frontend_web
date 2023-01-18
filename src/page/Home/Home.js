@@ -25,7 +25,7 @@ const Home = ({ user, setIsSignUp }) => {
   let { page } = useParams();
   const [searchParams] = useSearchParams();
   const searchFilm = searchParams.get("Search");
-  if (page === undefined) page = "1";
+  if (page === undefined || Number(page) <= 0) page = "1";
   const [isHasData, setIsHasData] = useState(false);
   const [films, setFilms] = useState();
   const getDataFilms = async () => {
@@ -44,7 +44,7 @@ const Home = ({ user, setIsSignUp }) => {
 
   useEffect(() => {
     getDataFilms();
-  }, []);
+  }, [searchFilm]);
 
   useEffect(() => {
     document.title = "Home";
@@ -130,26 +130,19 @@ const Home = ({ user, setIsSignUp }) => {
           {/* Param Search */}
           {isHasData ? (
             <div className={cx("pagination")}>
-              <Link to={"/" + (Number(page) - 1)}>&lt;&lt;</Link>
-              <Link className={page === "1" ? cx("active") : <></>} to="/1">
-                1
+              {page !== "1" ? <Link to={"/" + (Number(page) - 1)} className={cx("page")}>&lt;&lt;</Link> : <></>}
+              <Link className={cx("active", "page")} to={"/" + page}>
+                {page}
               </Link>
-              <Link to="/2" className={page === "2" ? cx("active") : <></>}>
-                2
-              </Link>
-              <Link to="/3" className={page === "3" ? cx("active") : <></>}>
-                3
-              </Link>
-              <span>...</span>
-              {page !== "1" && page !== "2" && page !== "3" ? (
-                <>
-                  <Link to={"/" + page}>{page}</Link>
-                  <span>...</span>
-                </>
-              ) : (
-                <></>
-              )}
-              <Link to={"/" + (Number(page) + 1)}>&gt;&gt;</Link>
+              {Number(page) + 2 <= 123  ? <>
+                <Link to={"/" + (Number(page) + 1)} className={cx("page")}>
+                  {Number(page) + 1}
+                </Link>
+                <Link to={"/" + (Number(page) + 2)} className={cx("page")}>
+                  {Number(page) + 2}
+                </Link>
+                <span>...</span>
+                <Link to={"/" + (Number(page) + 1)} className={cx("page")}>&gt;&gt;</Link> </> : <></>}
             </div>
           ) : (
             <></>

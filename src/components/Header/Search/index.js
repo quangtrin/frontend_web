@@ -11,7 +11,6 @@ const cx = classNames.bind(styles);
 
 function Search({ films }) {
   const navigate = useNavigate();
-  const [searchValue, setSearchValue] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -22,9 +21,6 @@ function Search({ films }) {
     const value = e.target.value;
     clearTimeout(timeout);
     timeout = setTimeout(function () {
-      if (!value.startsWith(" ")) {
-        setSearchValue(value);
-      }
       const res = films.filter((film) => {
         return (
           film.filmName.toUpperCase().includes(value.trim().toUpperCase()) &&
@@ -38,16 +34,16 @@ function Search({ films }) {
 
   const handleSearch = (e) => {
     if (e.keyCode === 13 || e.type === "click") {
-      navigate("/?Search=" + searchValue);
       setSearchResult([]);
+      navigate("/?Search=" + inputRef.current.value);
       inputRef.current.value = "";
+      
     }
   };
-
   return (
     <HeadlessTippy
       interactive
-      visible={searchResult.length > 0}
+      visible={searchResult.length > 0 && inputRef.current.value.trim().length > 0}
       delay={[0, 700]}
       appendTo={document.body}
       placement="bottom"
