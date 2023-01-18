@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import Tippy from "@tippyjs/react/headless";
-import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 import { Wrapper as PopperWrapper } from "../../Propper";
 import styles from "./Menu.module.scss";
@@ -19,6 +19,7 @@ function Menu({
   onChange = defaultFn,
   callBack,
 }) {
+  const navigate = useNavigate();
   const [history, setHistory] = useState([{ data: items }]);
   const current = history[history.length - 1];
 
@@ -32,6 +33,8 @@ function Menu({
           data={item}
           onClick={() => {
             if (item.title === "Log out") callBack();
+            else if (item.title === "Change Password")
+              navigate("/ChangePassword");
             else if (isParent) {
               setHistory((prev) => [...prev, item.children]);
             } else {

@@ -1,4 +1,5 @@
 import classNames from "classnames/bind";
+import { Link } from "react-router-dom";
 import styles from "./CardFilm.module.scss";
 const cx = classNames.bind(styles);
 const CardFilm = (props) => {

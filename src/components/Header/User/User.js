@@ -64,7 +64,7 @@ const User = ({ user, setIsSignUp }) => {
     },
     {
       icon: <SettingOutlined />,
-      title: "Settings",
+      title: "Change Password",
     },
     ...MENU_ITEM,
     {
@@ -77,7 +77,7 @@ const User = ({ user, setIsSignUp }) => {
     localStorage.clear();
     setIsSignUp(false);
     navigate(0);
-  }
+  };
   return (
     <Menu
       items={userMenu}
@@ -85,7 +85,9 @@ const User = ({ user, setIsSignUp }) => {
       callBack={handleClickLogout}
     >
       {user ? (
-        <img className={cx("user-avatar")} src={user.avatar} alt="" />
+        <div className={cx("wrapper")}>
+          <img className={cx("user-avatar")} src={user.avatar} alt="" />
+        </div>
       ) : (
         <></>
       )}

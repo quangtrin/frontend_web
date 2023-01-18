@@ -1,12 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "antd";
 import Swal from "sweetalert2";
 import React from "react";
 import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
 import styles from "./Login.module.scss";
 import classNames from "classnames/bind";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import imgLogo from "../../imgs/logo_hqbh.png";
 
 const cx = classNames.bind(styles);
@@ -42,17 +42,21 @@ const Login = ({ setIsSignUp }) => {
         setIsSignUp(true);
         const text = "Welcome " + res.data.userName;
         if(!location.state?.isHistoryUrlRegister) navigate(-1);
-        else navigate("/");
+        else navigate("/")
         setIsLoginSucces(true);
       } else setIsLoginSucces(false);
     }
   };
 
+  useEffect(() => {
+    document.title = "Login";
+  }, []);
+
   return (
     <div className={cx("background-login")}>
-      <a className={cx('logo_link')} href="/">
+      <Link className={cx("logo_link")} to="/">
         <img src={imgLogo} alt="logo" />
-      </a>
+      </Link>
       <form id="form" className={cx("login")} onSubmit={handleClickSubmit}>
         <h1 className={cx("login_heading")}>Đăng nhập</h1>
         {!isLoginSucces ? (
@@ -118,13 +122,13 @@ const Login = ({ setIsSignUp }) => {
           )}
         </div>
         <div className={cx("login_already")}>
-          <a href="#" className={cx("forgotpass_link")}>
+          <Link to="#" className={cx("forgotpass_link")}>
             Quên mật khẩu?
-          </a>
+          </Link>
           <span>Bạn chưa có tài khoản?</span>
-          <a href="/Register" className={cx("register_link")}>
+          <Link to="/Register" className={cx("register_link")}>
             Đăng ký
-          </a>
+          </Link>
         </div>
       </form>
     </div>

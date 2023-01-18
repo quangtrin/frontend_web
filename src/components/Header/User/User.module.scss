@@ -1,5 +1,10 @@
-.user-avatar {
+.wrapper {
   height: 40px;
   width: 40px;
+}
+
+.user-avatar {
+  height: 100%;
+  object-fit: cover;
   border-radius: 999px;
 }

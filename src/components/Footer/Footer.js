@@ -5,6 +5,7 @@ import imgIconAppStore from "../../imgs/appstore.png";
 
 import styles from "./Footer.module.scss";
 import classNames from "classnames/bind";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -14,9 +15,9 @@ const Footer = () => {
     <footer className={cx("footer")}>
       <div className={cx("footer_content")}>
         <div className={cx("footer_overview")}>
-          <a href="/">
+          <Link to="/">
             <img className={cx("footer_logo")} src={imgLogo} alt="" />
-          </a>
+          </Link>
           <p>
             Mạng xã hội chia sẻ các nội dung video giải trí chất lượng cao, phù
             hợp mọi độ tuổi và an toàn cho trẻ em.

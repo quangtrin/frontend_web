@@ -34,6 +34,7 @@ const ListEpisode = ({ user, setIsSignUp }) => {
 
   useEffect(() => {
     getDataFilms();
+    document.title = filmName;
   }, []);
 
   useEffect(() => {
