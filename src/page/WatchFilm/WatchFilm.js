@@ -21,13 +21,13 @@ const WatchFilm = ({ user, setIsSignUp }) => {
   const [urlEpisodeFilm, setUrlEpisodeFilm] = useState("");
   const getDataFilm = async () => {
     setIsHasData(false);
-    const res = await axios.get("https://backend-test-production-51c0.up.railway.app/api/user/getFilm/" + filmName);
+    const res = await axios.get("https://backend-test-production-e39c.up.railway.app/api/user/getFilm/" + filmName);
     setFilm(res.data);
   };
 
   const getDataEpisodeFilm = async () => {
     if (film) {
-      const res2 = await axios.get("https://backend-test-production-51c0.up.railway.app/api/user/getEpisodeFilm/" + film?.filmID);
+      const res2 = await axios.get("https://backend-test-production-e39c.up.railway.app/api/user/getEpisodeFilm/" + film?.filmID);
       setEpisodeFilm(res2.data);
     }
   };
@@ -35,7 +35,7 @@ const WatchFilm = ({ user, setIsSignUp }) => {
   const getUrlEpisodeFilm = async () => {
     if (episodeFilm) {
       const res = await axios.get(
-        "https://backend-test-production-51c0.up.railway.app/api/user/getUrlEpisodeFilm/" + film.filmID + "?episodeID=" + episodeID
+        "https://backend-test-production-e39c.up.railway.app/api/user/getUrlEpisodeFilm/" + film.filmID + "?episodeID=" + episodeID
       );
       setUrlEpisodeFilm(res.data[0].url);
       setIsHasData(true);

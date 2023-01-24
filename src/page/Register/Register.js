@@ -57,7 +57,7 @@ const Register = () => {
         return;
       } else setIsRightDate(true);
       setIsRegistering(true);
-      const res = await axios.post("https://backend-test-production-51c0.up.railway.app/api/user/register", {
+      const res = await axios.post("https://backend-test-production-e39c.up.railway.app/api/user/register", {
         account: account,
         password: password,
         userName: userName,

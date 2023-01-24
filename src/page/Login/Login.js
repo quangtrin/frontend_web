@@ -30,7 +30,7 @@ const Login = ({ setIsSignUp }) => {
     e.preventDefault();
     if (account && password) {
       setIsLogining(true);
-      const res = await axios.post("https://backend-test-production-51c0.up.railway.app/api/user/signUp", {
+      const res = await axios.post("https://backend-test-production-e39c.up.railway.app/api/user/signUp", {
         account: account,
         password: password,
       });

@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "proxy": "https://backend-test-production-51c0.up.railway.app",
+  "proxy": "https://backend-test-production-e39c.up.railway.app",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

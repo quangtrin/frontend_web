@@ -30,7 +30,7 @@ const Home = ({ user, setIsSignUp }) => {
   const [films, setFilms] = useState();
   const getDataFilms = async () => {
     setIsHasData(false);
-    const res = await axios.get("https://backend-test-production-51c0.up.railway.app/api/user/getFilm");
+    const res = await axios.get("https://backend-test-production-e39c.up.railway.app/api/user/getFilm");
     if (searchFilm) {
       const searchResult = res.data.filter((film) => {
         return film.filmName
