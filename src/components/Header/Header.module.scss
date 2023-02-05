@@ -10,6 +10,7 @@ header {
   width: 100%;
   transition: all 0.5s ease-in-out;
   z-index: 10;
+  overflow: hidden;
 }
 
 .background-header-scroll {
@@ -22,66 +23,10 @@ header {
   cursor: pointer;
 }
 
-.header_nav_links li {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700px;
-  font-size: 20px;
-  color: var(--white);
-  text-decoration: none;
-}
-
-.header_nav_links a {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700px;
-  font-size: 20px;
-  color: var(--white);
-  text-decoration: none;
-}
-
-.header_nav_links button {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700px;
-  font-size: 20px;
-  color: var(--white);
-  text-decoration: none;
-}
-
 .header_nav_links {
   list-style: none;
   text-align: center;
   margin-top: 15px;
-}
-
-.header_nav_links li {
-  display: inline-block;
-  padding: 0px 20px;
-  position: relative;
-}
-
-.header_nav_links li a {
-  transition: all 0.3s ease 0s;
-}
-
-.header_nav_links li a:hover {
-  color: var(--primary);
-}
-
-.header_nav_links > li > a {
-  position: relative;
-}
-
-.header_nav_links > li > a::before {
-  content: "";
-  height: 2px;
-  width: 0;
-  background-color: var(--red);
-  position: absolute;
-  bottom: -5px;
-  transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.header_nav_links > li:hover > a::before {
-  width: 100%;
 }
 
 .header_register {
@@ -134,12 +79,20 @@ header {
 //navbar
 
 // Responsive
-@media only screen and (max-width: 1210px) {
+@media only screen and (max-width: 1320px) {
   header {
     justify-content: space-between;
+    padding: 16px 0;
   }
 
   .container {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .header_register,
+  .header_login {
     display: none;
   }
 }

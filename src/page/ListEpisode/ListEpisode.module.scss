@@ -106,3 +106,12 @@
     color: var(--white);
   }
 }
+
+// Responsive
+@media only screen and (max-width: 550px) {
+  .layout_up {
+    span {
+      font-size: 1.2rem;
+    }
+  }
+}

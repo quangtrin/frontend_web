@@ -10,7 +10,7 @@ function CommentChild({ data }) {
         <img
           src={
             data.avatar ||
-            "https://products.popsww.com/api/v2/containers/file2/profiles/Adult-01.png"
+            "https://products.popsww.comhttps://backend-test-production-e39c.up.railway.app/api/v2/containers/file2/profiles/Adult-01.png"
           }
           alt="Avatar"
         />

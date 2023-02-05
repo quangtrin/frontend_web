@@ -39,60 +39,60 @@ const Footer = () => {
           <div className={cx("flex-container")}>
             <div className={cx("footer_category_content")}>
               <ul>
-                <a href="#">
-                  <li>
+                <li>
+                  <a href="#">
                     <p>Trang Chủ</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Truyện Tranh</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Originals</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Anime</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Show</p>
-                  </li>
-                </a>
+                  </a>
+                </li>
               </ul>
             </div>
             <div className={cx("footer_category_content")}>
               <ul>
-                <a href="#">
-                  <li>
+                <li>
+                  <a href="#">
                     <p>Âm nhạc</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Series</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Thiếu nhi</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Giáo dục</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Giải trí</p>
-                  </li>
-                </a>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -102,31 +102,31 @@ const Footer = () => {
           <div className={cx("flex-container")}>
             <div className={cx("footer_category_content")}>
               <ul>
-                <a href="#">
-                  <li>
+                <li>
+                  <a href="#">
                     <p>FAQs</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Chính Sách Về Quyền Riêng Tư</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Điều Khoản Và Điều Kiện Sự Dụng</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Điều Khoản Thanh Toán</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Chính Sách Và Quy Trình Sử Lý Khiếu Nại</p>
-                  </li>
-                </a>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -136,40 +136,40 @@ const Footer = () => {
           <div className={cx("flex-container")}>
             <div className={cx("footer_category_content")}>
               <ul>
-                <a href="#">
-                  <li>
+                <li>
+                  <a href="#">
                     <p>Add:</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Tel:</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>Mail:</p>
-                  </li>
-                </a>
+                  </a>
+                </li>
               </ul>
             </div>
             <div className={cx("footer_category_content")}>
               <ul>
-                <a href="#">
-                  <li>
+                <li>
+                  <a href="#">
                     <p>Hoàng Đạo Thúy, Thanh Xuân</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>0374 989 546</p>
-                  </li>
-                </a>
-                <a href="#">
-                  <li>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
                     <p>binhtrinh8122002@gmail.com</p>
-                  </li>
-                </a>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

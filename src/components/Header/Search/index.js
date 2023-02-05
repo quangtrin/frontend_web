@@ -37,7 +37,7 @@ function Search({ films }) {
       setSearchResult([]);
       navigate("/?Search=" + inputRef.current.value);
       inputRef.current.value = "";
-      
+      window.scroll(0, 995);
     }
   };
   return (

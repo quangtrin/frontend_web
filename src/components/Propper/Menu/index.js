@@ -35,6 +35,8 @@ function Menu({
             if (item.title === "Log out") callBack();
             else if (item.title === "Change Password")
               navigate("/ChangePassword");
+            else if (item.title === "Login") navigate("/Login");
+            else if (item.title === "Register") navigate("/Register");
             else if (isParent) {
               setHistory((prev) => [...prev, item.children]);
             } else {

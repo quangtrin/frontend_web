@@ -20,7 +20,7 @@ function Comment({ data, commentChilds, callBack, inputElement }) {
         <img
           src={
             data.avatar ||
-            "https://products.popsww.com/api/v2/containers/file2/profiles/Adult-01.png"
+            "https://products.popsww.comhttps://backend-test-production-e39c.up.railway.app/api/v2/containers/file2/profiles/Adult-01.png"
           }
           alt="Avatar"
         />
@@ -31,7 +31,7 @@ function Comment({ data, commentChilds, callBack, inputElement }) {
           <span className={cx("message-main")}>{data.comment}</span>
         </div>
         <div className={cx("comment-body_options")}>
-          <div>
+          <div className={cx("comment-body_options-left")}>
             <span className={cx("option", "disable")}>{data.time}</span>
             <span className={cx("option")}>Thích</span>
             <span className={cx("option")} onClick={handleRep}>

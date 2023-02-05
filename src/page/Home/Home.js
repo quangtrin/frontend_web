@@ -25,34 +25,63 @@ const Home = ({ user, setIsSignUp }) => {
   let { page } = useParams();
   const [searchParams] = useSearchParams();
   const searchFilm = searchParams.get("Search");
+  const category = searchParams.get("Category");
   if (page === undefined || Number(page) <= 0) page = "1";
   const [isHasData, setIsHasData] = useState(false);
   const [films, setFilms] = useState();
+  const [filterFilms, setFilterFilms] = useState();
+  const [filterPage, setFilterPage] = useState("");
   const getDataFilms = async () => {
     setIsHasData(false);
-    const res = await axios.get("https://backend-test-production-e39c.up.railway.app/api/user/getFilm");
-    if (searchFilm) {
-      const searchResult = res.data.filter((film) => {
-        return film.filmName
-          .toUpperCase()
-          .includes(searchFilm.trim().toUpperCase());
-      });
-      setFilms(searchResult);
-    } else setFilms(res.data);
+    if (films === undefined) {
+      const res = await axios.get("https://backend-test-production-e39c.up.railway.app/api/user/getFilm");
+      setFilms(res.data);
+    }
+
     setIsHasData(true);
   };
+  const funcFilterFilms = () => {
+    if (films) {
+      if (searchFilm) {
+        const searchResult = films.filter((film) => {
+          return film.filmName
+            .toUpperCase()
+            .includes(searchFilm.trim().toUpperCase());
+        });
+        setFilterFilms(searchResult);
+        setFilterPage("?Search=" + searchFilm);
+      } else if (category) {
+        const categoryFilms = films.filter((film) => {
+          return film.category
+            .toUpperCase()
+            .includes(category.trim().toUpperCase());
+        });
+        setFilterPage("?Category=" + category);
+        setFilterFilms(categoryFilms);
+      }
+    }
+  };
 
+  const handleChangePage = () => {
+    window.scroll(0, 995);
+  };
   useEffect(() => {
     getDataFilms();
-  }, [searchFilm]);
-
+  }, []);
+  useEffect(() => {
+    funcFilterFilms();
+  }, [searchFilm, category, films]);
   useEffect(() => {
     document.title = "Home";
   }, []);
 
   return (
     <div>
-      <Header user={user} setIsSignUp={setIsSignUp}></Header>
+      <Header
+        user={user}
+        setIsSignUp={setIsSignUp}
+        category={category}
+      ></Header>
       <div className={cx("home")}>
         <div className={cx("slider")}>
           <SlideHome></SlideHome>
@@ -106,20 +135,37 @@ const Home = ({ user, setIsSignUp }) => {
           <Container fluid="md">
             <Row>
               {isHasData ? (
-                films.map((film, index) => {
-                  if (index >= page * 30 - 30 && index <= 30 * page - 1)
-                    return (
-                      <Col className={cx("col1")} key={index}>
-                        <CardFilm
-                          href={"/ListEpisode/" + film.filmName}
-                          imgUrl={film.url}
-                          name={film.filmName}
-                          episode={film.episodeCount}
-                          duration={film.duration}
-                        ></CardFilm>
-                      </Col>
-                    );
-                })
+                filterFilms ? (
+                  filterFilms.map((film, index) => {
+                    if (index >= page * 30 - 30 && index <= 30 * page - 1)
+                      return (
+                        <Col className={cx("col1")} key={index}>
+                          <CardFilm
+                            href={"/ListEpisode/" + film.filmName}
+                            imgUrl={film.url}
+                            name={film.filmName}
+                            episode={film.episodeCount}
+                            duration={film.duration}
+                          ></CardFilm>
+                        </Col>
+                      );
+                  })
+                ) : (
+                  films.map((film, index) => {
+                    if (index >= page * 30 - 30 && index <= 30 * page - 1)
+                      return (
+                        <Col className={cx("col1")} key={index}>
+                          <CardFilm
+                            href={"/ListEpisode/" + film.filmName}
+                            imgUrl={film.url}
+                            name={film.filmName}
+                            episode={film.episodeCount}
+                            duration={film.duration}
+                          ></CardFilm>
+                        </Col>
+                      );
+                  })
+                )
               ) : (
                 <div className={cx("loading-wrapper")}>
                   <LoadingOutlined className={cx("loading-icon")} />
@@ -130,19 +176,52 @@ const Home = ({ user, setIsSignUp }) => {
           {/* Param Search */}
           {isHasData ? (
             <div className={cx("pagination")}>
-              {page !== "1" ? <Link to={"/" + (Number(page) - 1)} className={cx("page")}>&lt;&lt;</Link> : <></>}
-              <Link className={cx("active", "page")} to={"/" + page}>
+              {page !== "1" ? (
+                <Link
+                  to={"/" + (Number(page) - 1) + filterPage}
+                  className={cx("page")}
+                  onClick={handleChangePage}
+                >
+                  &lt;&lt;
+                </Link>
+              ) : (
+                <></>
+              )}
+              <Link
+                className={cx("active", "page")}
+                to={"/" + page + filterPage}
+                onClick={handleChangePage}
+              >
                 {page}
               </Link>
-              {Number(page) + 2 <= 123  ? <>
-                <Link to={"/" + (Number(page) + 1)} className={cx("page")}>
-                  {Number(page) + 1}
-                </Link>
-                <Link to={"/" + (Number(page) + 2)} className={cx("page")}>
-                  {Number(page) + 2}
-                </Link>
-                <span>...</span>
-                <Link to={"/" + (Number(page) + 1)} className={cx("page")}>&gt;&gt;</Link> </> : <></>}
+              {Number(page) + 2 <= 123 ? (
+                <>
+                  <Link
+                    to={"/" + (Number(page) + 1) + filterPage}
+                    className={cx("page")}
+                    onClick={handleChangePage}
+                  >
+                    {Number(page) + 1}
+                  </Link>
+                  <Link
+                    to={"/" + (Number(page) + 2) + filterPage}
+                    className={cx("page")}
+                    onClick={handleChangePage}
+                  >
+                    {Number(page) + 2}
+                  </Link>
+                  <span>...</span>
+                  <Link
+                    to={"/" + (Number(page) + 1) + filterPage}
+                    className={cx("page")}
+                    onClick={handleChangePage}
+                  >
+                    &gt;&gt;
+                  </Link>{" "}
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           ) : (
             <></>

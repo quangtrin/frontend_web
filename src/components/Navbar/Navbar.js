@@ -13,6 +13,7 @@ import Comment from "./Comment";
 import axios from "axios";
 import Episode from "./episode/Episode";
 import { Col, Row } from "antd";
+import defaultUser from "../../imgs/user_default.png"
 
 const cx = classNames.bind(styles);
 
@@ -30,7 +31,11 @@ function Navbar({ user, episodeFilm, film, episodeID }) {
   const getComment = async () => {
     setIsLoading(false);
     try {
-      const res = await (await axios.get("https://backend-test-production-e39c.up.railway.app/api/user/comment?filmID=" + film.filmID + "&episodeID=" + episodeID)).data;
+      const res = await (
+        await axios.get(
+          "https://backend-test-production-e39c.up.railway.app/api/user/comment?filmID=" + film.filmID + "&episodeID=" + episodeID
+        )
+      ).data;
       setComments(res);
       setIsLoading(true);
     } catch (error) {
@@ -46,12 +51,11 @@ function Navbar({ user, episodeFilm, film, episodeID }) {
         top10Film.push(res.data[i]);
       }
       setTop10Films(top10Film);
-      console.log(top10Film)
       setIsLoading(true);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
   const handleSendComment = async (comment) => {
     if (user.userId) {
       const req = await axios.post("https://backend-test-production-e39c.up.railway.app/api/user/comment", {
@@ -126,7 +130,7 @@ function Navbar({ user, episodeFilm, film, episodeID }) {
                 <div className={cx("user-comment")}>
                   <div className={cx("user-comment-avatar")}>
                     <img
-                      src="https://products.popsww.com/api/v2/containers/file2/profiles/Adult-01.png"
+                      src={user.avatar || defaultUser}
                       alt="Avatar"
                     />
                   </div>
