@@ -34,7 +34,7 @@ const Home = ({ user, setIsSignUp }) => {
   const getDataFilms = async () => {
     setIsHasData(false);
     if (films === undefined) {
-      const res = await axios.get("https://backend-test-production-e39c.up.railway.app/api/user/getFilm");
+      const res = await axios.get("https://backend-test-production-3338.up.railway.app/api/user/getFilm");
       setFilms(res.data);
     }
 

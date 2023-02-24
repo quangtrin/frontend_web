@@ -20,13 +20,13 @@ const ListEpisode = ({ user, setIsSignUp }) => {
 
   const getDataFilms = async () => {
     setIsHasData(false);
-    const res = await axios.get("https://backend-test-production-e39c.up.railway.app/api/user/getFilm/" + filmName);
+    const res = await axios.get("https://backend-test-production-3338.up.railway.app/api/user/getFilm/" + filmName);
     setFilm(res.data);
   };
 
   const getDataEpisodeFilm = async () => {
     if (film) {
-      const res2 = await axios.get("https://backend-test-production-e39c.up.railway.app/api/user/getEpisodeFilm/" + film?.filmID);
+      const res2 = await axios.get("https://backend-test-production-3338.up.railway.app/api/user/getEpisodeFilm/" + film?.filmID);
       setEpisodeFilm(res2.data);
       setIsHasData(true);
     }
