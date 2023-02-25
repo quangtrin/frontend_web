@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
 import axios from "axios";
+import Rate from "../../components/Rate/Rate"
 
 const cx = classNames.bind(styles);
 const ListEpisode = ({ user, setIsSignUp }) => {
@@ -20,13 +21,13 @@ const ListEpisode = ({ user, setIsSignUp }) => {
 
   const getDataFilms = async () => {
     setIsHasData(false);
-    const res = await axios.get("https://backend-test-production-3338.up.railway.app/api/user/getFilm/" + filmName);
+    const res = await axios.get("https://backend-test-production-3338.up.railway.app/api/film/getFilm/" + filmName);
     setFilm(res.data);
   };
 
   const getDataEpisodeFilm = async () => {
     if (film) {
-      const res2 = await axios.get("https://backend-test-production-3338.up.railway.app/api/user/getEpisodeFilm/" + film?.filmID);
+      const res2 = await axios.get("https://backend-test-production-3338.up.railway.app/api/episodeFilm/getEpisodeFilm/" + film?.filmID);
       setEpisodeFilm(res2.data);
       setIsHasData(true);
     }
@@ -55,6 +56,7 @@ const ListEpisode = ({ user, setIsSignUp }) => {
             <div className={cx("layout_up")}>
               <Container>
                 <div className={cx("title_films")}>{film.filmName}</div>
+                <Rate user={user} film={film}></Rate>
                 <div className={cx("describe")}>
                   <Row>
                     <Col
@@ -113,7 +115,7 @@ const ListEpisode = ({ user, setIsSignUp }) => {
                         />
                         <TextInformation
                           title="Đánh giá: "
-                          text={film.point}
+                          text={film.point || "Chưa có đánh giá nào"}
                           color="white"
                         />
                         <TextInformation

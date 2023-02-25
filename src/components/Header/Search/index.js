@@ -43,7 +43,9 @@ function Search({ films }) {
   return (
     <HeadlessTippy
       interactive
-      visible={searchResult.length > 0 && inputRef.current.value.trim().length > 0}
+      visible={
+        searchResult.length > 0 && inputRef.current.value.trim().length > 0
+      }
       delay={[0, 700]}
       appendTo={document.body}
       placement="bottom"
@@ -52,7 +54,8 @@ function Search({ films }) {
           <p className={cx("search-header")}>Kết Quả Tìm Kiếm</p>
           <div className={cx("search-list")} tapindex="-1" {...attrs}>
             {searchResult.map((film, index) => {
-              return <FilmItem key={index} film={film}></FilmItem>;
+              if (index < 20)
+                return <FilmItem key={index} film={film}></FilmItem>;
             })}
           </div>
         </div>

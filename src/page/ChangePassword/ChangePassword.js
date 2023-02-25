@@ -1,8 +1,10 @@
-import { useState } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import { EyeFilled, EyeInvisibleFilled } from "@ant-design/icons";
 import { Button } from "antd";
+import React from "react";
 import classNames from "classnames/bind";
-
+import Swal from "sweetalert2";
 import styles from "./ChangePassword.module.scss";
 import imgLogo from "../../imgs/logo_hqbh.png";
 import { Link } from "react-router-dom";
@@ -10,6 +12,7 @@ import { Link } from "react-router-dom";
 const cx = classNames.bind(styles);
 
 const ChangePassword = () => {
+  const [account, setAccount] = useState();
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [reNewPassword, setReNewPassword] = useState("");
@@ -17,7 +20,12 @@ const ChangePassword = () => {
   const [isHideNewPass, setIsHideNewPass] = useState(true);
   const [isHideReNewPass, setIsHideReNewPass] = useState(true);
   const [isChanging, setIsChanging] = useState(false);
+  const [isEqualPassword, setIsEqualPassword] = useState(true);
+  const [isEqualOldNewPassword, setIsEqualOldNewPassword] = useState(true);
 
+  const handleChangeAccount = (e) => {
+    setAccount(e.target.value);
+  };
   const handleChangeOldPassword = (e) => {
     setOldPassword(e.target.value);
   };
@@ -27,6 +35,38 @@ const ChangePassword = () => {
   const handleChangeReNewPassword = (e) => {
     setReNewPassword(e.target.value);
   };
+  const handleClickSubmit = async (e) => {
+    e.preventDefault();
+    if (account && oldPassword && newPassword && reNewPassword) {
+      if (newPassword !== reNewPassword) {
+        setIsEqualPassword(false);
+        return;
+      }
+      if (oldPassword === newPassword) {
+        setIsEqualOldNewPassword(false);
+        return;
+      }
+      setIsChanging(true);
+      const req = await axios.post("https://backend-test-production-3338.up.railway.app/api/user/changePassword", {
+        account: account,
+        oldPassword: oldPassword,
+        newPassword: newPassword
+      });
+      if (req.data.change) {
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Đổi mật khẩu thành công",
+          confirmButtonText: '<div class="fa fa-thumbs-up"}>OK</div>',
+        })
+      }
+      setIsChanging(false);
+    }
+  };
+  useEffect(() => {
+    document.title = "ChangePassword";
+  }, []);
+
   return (
     <div className={cx("background-form")}>
       <Link className={cx("logo_link")} to="/">
@@ -35,17 +75,17 @@ const ChangePassword = () => {
       <div className={cx("form")}>
         <h1 className={cx("form_heading")}>Đổi mật khẩu</h1>
 
-        <form className={cx("form_form")}>
+        <form className={cx("form_form")} onSubmit={handleClickSubmit}>
           <label htmlFor="username" className={cx("form_label")}>
-            Tên người dùng
+            Tên đăng nhập
           </label>
           <input
             type="text"
             id="username"
             name="username"
             className={cx("form_input")}
-            value="Nguyễn Văn A"
-            disabled
+            placeholder="user@gmail.com"
+            onChange={handleChangeAccount}
           />
           <label htmlFor="oldPassword" className={cx("form_label")}>
             Mật khẩu cũ
@@ -68,6 +108,11 @@ const ChangePassword = () => {
               )}
             </div>
           </div>
+          {!isEqualOldNewPassword ? (
+            <p className={cx("notify")}>Mật khẩu mới phải khác mật khẩu cũ!</p>
+          ) : (
+            <></>
+          )}
           <div className={cx("newPassword_input")}>
             <label htmlFor="newPassword" className={cx("form_label")}>
               Mật khẩu mới
@@ -81,7 +126,7 @@ const ChangePassword = () => {
               minLength={6}
               maxLength={30}
               placeholder="*********"
-              onChange={setNewPassword}
+              onChange={handleChangeNewPassword}
             />
             <div className={cx("hide_icon")}>
               {isHideReNewPass ? (
@@ -91,6 +136,11 @@ const ChangePassword = () => {
               )}
             </div>
           </div>
+          {!isEqualPassword ? (
+            <p className={cx("notify")}>Mật khẩu mới phải giống nhau!</p>
+          ) : (
+            <></>
+          )}
           <div className={cx("reNewPassword_input")}>
             <label htmlFor="reNewPassword" className={cx("form_label")}>
               Nhập lại mật khẩu mới
@@ -116,7 +166,7 @@ const ChangePassword = () => {
             <button
               className={cx(
                 "form_submit",
-                oldPassword && newPassword && reNewPassword ? "primary" : ""
+                account && oldPassword && newPassword && reNewPassword ? "primary" : ""
               )}
             >
               Đổi mật khẩu
@@ -126,7 +176,7 @@ const ChangePassword = () => {
               type="Call to Action"
               className={cx(
                 "form_submit",
-                oldPassword && newPassword && reNewPassword ? "primary" : ""
+                account && oldPassword && newPassword && reNewPassword ? "primary" : ""
               )}
               loading
             >

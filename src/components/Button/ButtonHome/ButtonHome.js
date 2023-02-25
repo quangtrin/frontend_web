@@ -4,7 +4,7 @@ import styles from "./ButtonHome.module.scss";
 const cx = classNames.bind(styles);
 const ButtonHome = (props) => {
     return (
-        <a href={props.href} className={cx("btn-home")}>{props.text}</a>
+        <a href={props.href} className={cx("btn-home")} onClick={props.onClick}>{props.text}</a>
     )
 }
 export default ButtonHome

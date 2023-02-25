@@ -43,6 +43,7 @@ function App() {
         <Route path="Home" element={<HomeAdmin />}></Route>
         <Route path="AddFilm" element={<AddFilmAdmin />}></Route>
         <Route path="AddEpisodeFilm" element={<AddEpisodeAdmin />}></Route>
+        <Route path="ListFilm/:page" element={<ListFilmAdmin />}></Route>
         <Route path="ListFilm" element={<ListFilmAdmin />}></Route>
         <Route path="ListAccountAdmin" element={<ListAccountAdmin />}></Route>
         <Route path="ListAccountUser" element={<ListAccountUser />}></Route>

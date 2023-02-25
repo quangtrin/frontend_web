@@ -77,7 +77,7 @@ const Register = () => {
         }).then((result) => {
           if (result.isConfirmed) setSuccess(true);
         });
-      }
+      } 
     }
   };
   const handleClickLogin = () => {

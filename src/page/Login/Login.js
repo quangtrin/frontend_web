@@ -68,7 +68,6 @@ const Login = ({ setIsSignUp }) => {
           <label htmlFor="account" className={cx("login_label")}>
             Tên đăng nhập
           </label>
-
           <input
             type="email"
             id="account"
