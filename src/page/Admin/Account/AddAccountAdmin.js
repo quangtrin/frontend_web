@@ -1,10 +1,11 @@
 import { Container, Row, Col } from "react-bootstrap";
 import classNames from "classnames/bind";
 import styles from "./AccountAdmin.module.scss";
+import { useOutletContext } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 const AddAccountAdmin = () => {
-
+  const adminToken = useOutletContext();
   return (
     <div>
       <div className={cx("main-container")}>

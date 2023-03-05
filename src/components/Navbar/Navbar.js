@@ -13,12 +13,16 @@ import Comment from "./Comment";
 import axios from "axios";
 import Episode from "./episode/Episode";
 import { Col, Row } from "antd";
-import defaultUser from "../../imgs/user_default.png"
+import defaultUser from "../../imgs/user_default.png";
+import EpisodeHeader from "./EpisodeHeader/EpisodeHeader";
 
 const cx = classNames.bind(styles);
 
 function Navbar({ user, episodeFilm, film, episodeID }) {
   const [key, setKey] = useState("episode");
+  const [subKey, setSubKey] = useState(
+    Number.parseInt(episodeFilm.length / 100)
+  );
   const [comments, setComments] = useState([]);
   const [userComment, setUserComment] = useState("");
   const [commentParentID, setCommentParentID] = useState();
@@ -129,10 +133,7 @@ function Navbar({ user, episodeFilm, film, episodeID }) {
               <div>
                 <div className={cx("user-comment")}>
                   <div className={cx("user-comment-avatar")}>
-                    <img
-                      src={user.avatar || defaultUser}
-                      alt="Avatar"
-                    />
+                    <img src={user.avatar || defaultUser} alt="Avatar" />
                   </div>
                   <div className={cx("user-comment-input")}>
                     <input
@@ -193,23 +194,55 @@ function Navbar({ user, episodeFilm, film, episodeID }) {
         {key === "episode" ? (
           <div>
             {episodeFilm ? (
-              <Row gutter={[6, 6]}>
-                {episodeFilm.map((episode, index) => {
-                  return (
-                    <Col span={4} key={index}>
-                      <Episode
-                        href={
-                          "/WatchFilm/" +
-                          film.filmName +
-                          "?episode=" +
-                          episode.episodeID
-                        }
-                        episode={episode?.episodeID}
-                      ></Episode>
-                    </Col>
-                  );
-                })}
-              </Row>
+              episodeFilm.length > 100 ? (
+                <div>
+                  <EpisodeHeader
+                    episodeLength={episodeFilm.length / 100}
+                    callBack={setSubKey}
+                    subKey={subKey}
+                  ></EpisodeHeader>
+                  <Row gutter={[6, 6]}>
+                    {episodeFilm.map((episode, index) => {
+                      if (
+                        episode.episodeID >= subKey * 100 + 1 &&
+                        episode.episodeID <= subKey * 100 + 100
+                      ) {
+                        return (
+                          <Col span={4} key={index}>
+                            <Episode
+                              href={
+                                "/WatchFilm/" +
+                                film.filmName +
+                                "?episode=" +
+                                episode.episodeID
+                              }
+                              episode={episode?.episodeID}
+                            ></Episode>
+                          </Col>
+                        );
+                      }
+                    })}
+                  </Row>
+                </div>
+              ) : (
+                <Row gutter={[6, 6]}>
+                  {episodeFilm.map((episode, index) => {
+                    return (
+                      <Col span={4} key={index}>
+                        <Episode
+                          href={
+                            "/WatchFilm/" +
+                            film.filmName +
+                            "?episode=" +
+                            episode.episodeID
+                          }
+                          episode={episode?.episodeID}
+                        ></Episode>
+                      </Col>
+                    );
+                  })}
+                </Row>
+              )
             ) : (
               <></>
             )}

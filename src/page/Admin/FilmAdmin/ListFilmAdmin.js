@@ -2,15 +2,15 @@ import { FaSearch } from "react-icons/fa";
 import classNames from "classnames/bind";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
 import styles from "./FilmAdmin.module.scss";
 import TableFilm from "./TableFilm/TableFilm";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useOutletContext } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 const ListAdmin = () => {
   let { page } = useParams();
   if (page === undefined || Number(page) <= 0) page = "1";
+  const adminToken = useOutletContext();
   const [isHasData, setIsHasData] = useState(false);
   const [films, setFilms] = useState();
   const [searchValue, setSearchValue] = useState("");

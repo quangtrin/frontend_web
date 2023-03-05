@@ -132,35 +132,14 @@ const Home = ({ user, setIsSignUp }) => {
               <span>Phim Mới</span>
             </h3>
           </div>
-          {/* <Container fluid="md"> */}
-            <Row gutter={[16, 6]}>
-              {isHasData ? (
-                filterFilms ? (
-                  filterFilms.length > 0 ? (
-                    filterFilms.map((film, index) => {
-                      if (index >= page * 30 - 30 && index <= 30 * page - 1)
-                        return (
-                          <Col className={cx("col1")} key={index} span={4}>
-                            <CardFilm
-                              href={"/ListEpisode/" + film.filmName}
-                              imgUrl={film.url}
-                              name={film.filmName}
-                              episode={film.episodeCount}
-                              duration={film.duration}
-                            ></CardFilm>
-                          </Col>
-                        );
-                    })
-                  ) : (
-                    <span className={cx("Not-found")}>
-                      Không tìm thấy kết quả
-                    </span>
-                  )
-                ) : (
-                  films.map((film, index) => {
+          <Row gutter={[16, 6]} justify="space-around">
+            {isHasData ? (
+              filterFilms ? (
+                filterFilms.length > 0 ? (
+                  filterFilms.map((film, index) => {
                     if (index >= page * 30 - 30 && index <= 30 * page - 1)
                       return (
-                        <Col className={cx("col1")} key={index}>
+                        <Col className={cx("col1")} key={index} span={4}>
                           <CardFilm
                             href={"/ListEpisode/" + film.filmName}
                             imgUrl={film.url}
@@ -171,14 +150,33 @@ const Home = ({ user, setIsSignUp }) => {
                         </Col>
                       );
                   })
+                ) : (
+                  <span className={cx("Not-found")}>
+                    Không tìm thấy kết quả
+                  </span>
                 )
               ) : (
-                <div className={cx("loading-wrapper")}>
-                  <LoadingOutlined className={cx("loading-icon")} />
-                </div>
-              )}
-            </Row>
-          {/* </Container> */}
+                films.map((film, index) => {
+                  if (index >= page * 30 - 30 && index <= 30 * page - 1)
+                    return (
+                      <Col className={cx("col1")} key={index}>
+                        <CardFilm
+                          href={"/ListEpisode/" + film.filmName}
+                          imgUrl={film.url}
+                          name={film.filmName}
+                          episode={film.episodeCount}
+                          duration={film.duration}
+                        ></CardFilm>
+                      </Col>
+                    );
+                })
+              )
+            ) : (
+              <div className={cx("loading-wrapper")}>
+                <LoadingOutlined className={cx("loading-icon")} />
+              </div>
+            )}
+          </Row>
           {/* Param Search */}
           {isHasData ? (
             filterFilms && filterFilms.length > 0 ? (

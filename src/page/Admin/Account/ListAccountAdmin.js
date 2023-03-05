@@ -2,9 +2,11 @@ import classNames from "classnames/bind";
 import styles from "./AccountAdmin.module.scss";
 import { FaSearch } from "react-icons/fa";
 import TableAccountAdmin from './TableAccount/TableAccountAdmin';
+import { useOutletContext } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 const ListAccountAdmin = () => {
+  const adminToken = useOutletContext();
   return (
     <div>
       <div className={cx("main-container")}>

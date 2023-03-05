@@ -1,9 +1,10 @@
 import classNames from "classnames/bind";
 import styles from "./FilmAdmin.module.scss";
+import { useOutletContext } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 const AddFilm = () => {
-
+  const adminToken = useOutletContext();
   return (
     <div>
       <div className={cx("main-container")}>

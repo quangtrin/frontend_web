@@ -50,7 +50,7 @@ const ChangePassword = () => {
       const req = await axios.post("https://backend-test-production-3338.up.railway.app/api/user/changePassword", {
         account: account,
         oldPassword: oldPassword,
-        newPassword: newPassword
+        newPassword: newPassword,
       });
       if (req.data.change) {
         Swal.fire({
@@ -58,7 +58,7 @@ const ChangePassword = () => {
           title: "Success",
           text: "Đổi mật khẩu thành công",
           confirmButtonText: '<div class="fa fa-thumbs-up"}>OK</div>',
-        })
+        });
       }
       setIsChanging(false);
     }
@@ -166,7 +166,9 @@ const ChangePassword = () => {
             <button
               className={cx(
                 "form_submit",
-                account && oldPassword && newPassword && reNewPassword ? "primary" : ""
+                account && oldPassword && newPassword && reNewPassword
+                  ? "primary"
+                  : ""
               )}
             >
               Đổi mật khẩu
@@ -176,13 +178,18 @@ const ChangePassword = () => {
               type="Call to Action"
               className={cx(
                 "form_submit",
-                account && oldPassword && newPassword && reNewPassword ? "primary" : ""
+                account && oldPassword && newPassword && reNewPassword
+                  ? "primary"
+                  : ""
               )}
               loading
             >
               <></>
             </Button>
           )}
+          <Link to="/" className={cx("back-link")}>
+            Quay Lại
+          </Link>
         </form>
       </div>
     </div>

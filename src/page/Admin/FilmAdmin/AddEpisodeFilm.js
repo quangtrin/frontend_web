@@ -5,9 +5,11 @@ import HeadlessTippy from "@tippyjs/react/headless";
 import { useEffect, useState } from "react";
 import styles from "./FilmAdmin.module.scss";
 import FilmItem from "../../../components/Header/Search/FilmItem";
+import { useOutletContext } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 const AddEpisodeFilm = () => {
+  const adminToken = useOutletContext();
   const [filmName, setFilmName] = useState("");
   const [episodeID, setEpisodeID] = useState(0);
   const [episodeUrl, setEpisodeUrl] = useState("");
@@ -145,13 +147,13 @@ const AddEpisodeFilm = () => {
                       >
                         {searchResult.map((film, index) => {
                           if (index < 20)
-                          return (
-                            <FilmItem
-                              key={index}
-                              film={film}
-                              callBack={[setFilmName, setSearchResult]}
-                            ></FilmItem>
-                          );
+                            return (
+                              <FilmItem
+                                key={index}
+                                film={film}
+                                callBack={[setFilmName, setSearchResult]}
+                              ></FilmItem>
+                            );
                         })}
                       </div>
                     </div>

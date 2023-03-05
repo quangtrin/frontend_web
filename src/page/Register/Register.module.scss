@@ -3,6 +3,8 @@
     url("https://wallpapercave.com/wp/wp4916205.jpg");
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   overflow-y: hidden;
 }
@@ -66,7 +68,6 @@
   outline: none;
   margin: 8px 0 16px;
   border: 1px solid var(--while);
-  // box-shadow: 0 5px 10px 0 rgba(55, 57, 65, 0.5);
 
   &:focus {
     border: 1px solid var(--primary);
@@ -134,5 +135,33 @@
 
   &:focus {
     border: 1px solid var(--primary);
+  }
+}
+
+// Responsive
+@media only screen and (max-width: 850px) {
+  .logo_link {
+    left: 16px;
+    top: 16px;
+  }
+  .background-register {
+    overflow-y: auto;
+    width: 100%;
+    .register {
+      width: 100%;
+      height: 100%;
+      padding: 76px 16px 16px;
+      max-width: none;
+    }
+  }
+
+  .register_input {
+    margin-bottom: 16px;
+  }
+}
+
+@media only screen and (max-height: 600px) {
+  .background-register {
+    height: auto;
   }
 }

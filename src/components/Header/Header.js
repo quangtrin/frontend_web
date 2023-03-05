@@ -1,12 +1,14 @@
-import imgLogo from "../../imgs/logo_hqbh.png";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
-import User from "./User/User";
+import { CaretDownOutlined } from "@ant-design/icons";
 import classNames from "classnames/bind";
-import styles from "./Header.module.scss";
-import Search from "./Search";
 import { Link } from "react-router-dom";
+import HeadlessTippy from "@tippyjs/react/headless";
+
+import styles from "./Header.module.scss";
+import imgLogo from "../../imgs/logo_hqbh.png";
+import User from "./User/User";
+import Search from "./Search";
 import Category from "./Category/Category";
 
 const cx = classNames.bind(styles);
@@ -41,9 +43,11 @@ const Header = ({ user, setIsSignUp, category }) => {
         scroll ? cx("header", "background-header-scroll") : cx("header")
       }
     >
-      <a href="/">
-        <img src={imgLogo} alt="logo" />
-      </a>
+      <div className={cx("logo")}>
+        <a href="/">
+          <img src={imgLogo} alt="logo" />
+        </a>
+      </div>
       <nav className={cx("container")}>
         <ul className={cx("header_nav_links")}>
           <Category
@@ -67,6 +71,40 @@ const Header = ({ user, setIsSignUp, category }) => {
             categoryName={"Học đường"}
           ></Category>
         </ul>
+        <HeadlessTippy
+          interactive
+          appendTo={document.body}
+          placement="bottom"
+          render={(attrs) => (
+            <div className={cx("box")} tabIndex="-1" {...attrs}>
+              <Category
+                categoryHome={categoryState}
+                categoryName={"Hành động"}
+              ></Category>
+              <Category
+                categoryHome={categoryState}
+                categoryName={"Hài hước"}
+              ></Category>
+              <Category
+                categoryHome={categoryState}
+                categoryName={"Phiêu lưu"}
+              ></Category>
+              <Category
+                categoryHome={categoryState}
+                categoryName={"Tiên hiệp"}
+              ></Category>
+              <Category
+                categoryHome={categoryState}
+                categoryName={"Học đường"}
+              ></Category>
+            </div>
+          )}
+        >
+          <div className={cx("more")}>
+            <span className={cx("more-name")}>Thể Loại</span>
+            <CaretDownOutlined className={cx("more-icon")} />
+          </div>
+        </HeadlessTippy>
       </nav>
       <div className={cx("right-content")}>
         {isHasData ? <Search films={films}></Search> : <></>}

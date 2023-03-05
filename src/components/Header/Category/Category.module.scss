@@ -11,7 +11,7 @@ li {
 .category {
     font-family: "Roboto", sans-serif;
     font-weight: 700px;
-    font-size: 18px;
+    font-size: 1.8rem;
     color: var(--white);
     text-decoration: none;
     transition: all 0.3s ease 0s;
@@ -50,3 +50,4 @@ li:hover>.category::before {
         width: 100% !important;
     }
 }
+
