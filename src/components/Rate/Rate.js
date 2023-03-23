@@ -15,7 +15,7 @@ const Rate = ({ user, film }) => {
   const [currentRate, setCurrentRate] = useState();
   const handleButtonSumbit = async () => {
     try {
-      const req = await axios.post("https://backend-test-production-3338.up.railway.app/api/rate", {
+      const req = await axios.post("https://backend-test-production-0b5f.up.railway.app/api/rate", {
         filmID: film.filmID,
         userID: user.userId,
         rate: currentRate,

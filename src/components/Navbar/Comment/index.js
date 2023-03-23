@@ -20,7 +20,7 @@ function Comment({ data, commentChilds, callBack, inputElement }) {
         <img
           src={
             data.avatar ||
-            "https://products.popsww.comhttps://backend-test-production-3338.up.railway.app/api/v2/containers/file2/profiles/Adult-01.png"
+            "https://products.popsww.comhttps://backend-test-production-0b5f.up.railway.app/api/v2/containers/file2/profiles/Adult-01.png"
           }
           alt="Avatar"
         />

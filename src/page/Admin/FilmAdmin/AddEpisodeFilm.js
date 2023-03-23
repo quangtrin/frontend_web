@@ -52,7 +52,7 @@ const AddEpisodeFilm = () => {
   const getDataFilms = async () => {
     setIsHasData(false);
     if (films === undefined) {
-      const res = await axios.get("https://backend-test-production-3338.up.railway.app/api/film/getFilm");
+      const res = await axios.get("https://backend-test-production-0b5f.up.railway.app/api/film/getFilm");
       setFilms(res.data);
     }
 
@@ -73,7 +73,7 @@ const AddEpisodeFilm = () => {
 
       if (id) {
         const list = await (
-          await axios.get("https://backend-test-production-3338.up.railway.app/api/episodeFilm/getEpisodeFilm/" + id)
+          await axios.get("https://backend-test-production-0b5f.up.railway.app/api/episodeFilm/getEpisodeFilm/" + id)
         ).data;
         for (let index = 0; index < list.length; index++) {
           if (list[index].episodeID == episodeID) {
@@ -83,7 +83,7 @@ const AddEpisodeFilm = () => {
         }
 
         if (isSuccess) {
-          const res = await axios.post("https://backend-test-production-3338.up.railway.app/api/episodeFilm/addEpisode", {
+          const res = await axios.post("https://backend-test-production-0b5f.up.railway.app/api/episodeFilm/addEpisode", {
             filmID: id,
             episodeID: episodeID,
             url: episodeUrl,

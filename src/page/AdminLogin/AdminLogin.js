@@ -22,7 +22,7 @@ const AdminLogin = ({ setIsAdminLogin }) => {
     e.preventDefault();
     if (account && password) {
       try {
-        const res = await axios.post("https://backend-test-production-3338.up.railway.app/api/admin/login", {
+        const res = await axios.post("https://backend-test-production-0b5f.up.railway.app/api/admin/login", {
           account: account,
           password: password,
         })

@@ -21,14 +21,14 @@ const WatchFilm = ({ user, setIsSignUp }) => {
   const [urlEpisodeFilm, setUrlEpisodeFilm] = useState("");
   const getDataFilm = async () => {
     setIsHasData(false);
-    const res = await axios.get("https://backend-test-production-3338.up.railway.app/api/film/getFilm/" + filmName);
+    const res = await axios.get("https://backend-test-production-0b5f.up.railway.app/api/film/getFilm/" + filmName);
     setFilm(res.data);
   };
 
   const getDataEpisodeFilm = async () => {
     if (film) {
       const res2 = await axios.get(
-        "https://backend-test-production-3338.up.railway.app/api/episodeFilm/getEpisodeFilm/" + film?.filmID
+        "https://backend-test-production-0b5f.up.railway.app/api/episodeFilm/getEpisodeFilm/" + film?.filmID
       );
       setEpisodeFilm(res2.data);
     }
@@ -37,7 +37,7 @@ const WatchFilm = ({ user, setIsSignUp }) => {
   const getUrlEpisodeFilm = async () => {
     if (episodeFilm) {
       const res = await axios.get(
-        "https://backend-test-production-3338.up.railway.app/api/episodeFilm/getUrlEpisodeFilm/" +
+        "https://backend-test-production-0b5f.up.railway.app/api/episodeFilm/getUrlEpisodeFilm/" +
           film.filmID +
           "?episodeID=" +
           episodeID
